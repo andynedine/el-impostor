@@ -75,13 +75,19 @@
     <!-- Pantalla: Turnos -->
     <section id="screenTurn" class="card screen hidden">
       <div class="row between">
-        <div>
-          <h2>2) Turnos</h2>
-          <p class="hint">
-            Jugador <span id="turnIndex"></span>/<span id="turnTotal"></span>:
-            <strong id="turnPlayer"></strong>
-          </p>
+        <div class="turnHeader">
+            <div class="turnTopRow">
+              <h2 class="turnStep">2) Turno:</h2>
+              <span class="turnCounter">
+                Jugador <span id="turnIndex"></span>/<span id="turnTotal"></span>
+              </span>
+            </div>
+          
+            <div class="turnNameRow">
+              <span id="turnPlayer" class="turnPlayerName"></span>
+            </div>
         </div>
+
         <div class="pill" id="roundInfoPill">
           <span id="roundCategory"></span>
         </div>
@@ -120,7 +126,7 @@
     <!-- Pantalla: Fin / Reveal -->
     <section id="screenEnd" class="card screen hidden">
       <h2>3) Final de partida</h2>
-      <p class="hint">Cuando estéis listos, revelad los impostores.</p>
+      <p class="revealInfo" id="revealInfo">Cuando estéis listos, revelad los impostores.</p>
 
       <div class="revealBox">      
         <div class="revealCenter" id="revealCenter">
