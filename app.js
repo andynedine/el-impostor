@@ -39,14 +39,13 @@ const secretLabel = $("#secretLabel");
 const secretWord = $("#secretWord");
 const secretBox = $("#secretBox");
 
-const endCategory = $("#endCategory");
-const endWord = $("#endWord");
 const btnReveal = $("#btnReveal");
 const revealResult = $("#revealResult");
 const impostorListEl = $("#impostorList");
 const impostorTitleEl = $("#impostorTitle");
 const revealWordLineEl = $("#revealWordLine");
 const revealCenterEl = $("#revealCenter");
+const revealInfo = $("#revealInfo");
 
 const btnNewRound = $("#btnNewRound");
 const btnNewRound2 = $("#btnNewRound2");
@@ -281,6 +280,7 @@ function goToEnd() {
   // reset reveal
   revealResult.classList.add("hidden");
   revealCenterEl.classList.remove("hide");
+  revealInfo.classList.remove("hide");
   impostorListEl.innerHTML = "";
   impostorTitleEl.textContent = "";
   revealWordLineEl.textContent = "";
@@ -345,6 +345,7 @@ btnReveal.addEventListener("click", () => {
     if (!round) return;
     btnReveal.disabled = true;
     revealCenterEl.classList.add("hide");
+    revealInfo.classList.add("hide");
   
     const impostorIdxs = Array.from(round.impostorIndices).sort((a,b)=>a-b);
   
