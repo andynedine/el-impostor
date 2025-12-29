@@ -426,7 +426,7 @@ h3{ margin: 0; font-size: 16px; }
 @media (max-width: 560px){
   .btn{ padding: 10px 12px; }
   .holdArea{ min-height: 250px; }
-  .select{ min-width: 120px; }
+  .select{ min-width: 125px; }
 
   /* Header: 2 arriba, 1 abajo, pegados a la derecha */
   .top-actions{
@@ -443,3 +443,4 @@ h3{ margin: 0; font-size: 16px; }
   .turnTopRow{ font-size: 13px; }
   .turnPlayerName{ font-size: 2.4em; }
 }
+
