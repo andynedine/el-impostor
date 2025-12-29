@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>El Impostor (Web)</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">🕵️‍♂️</div>
+      <div>
+        <h1>El Impostor</h1>
+      </div>
+    </div>
+
+    <div class="top-actions">
+        <div class="top-actions-row">
+          <button id="btnTheme" class="btn ghost" title="Cambiar modo">🌙/☀️</button>
+          <button id="btnNewRound" class="btn ghost" title="Nueva partida (mantiene jugadores)">Nueva partida</button>
+        </div>
+        <div class="top-actions-row">
+          <button id="btnReset" class="btn danger" title="Borra jugadores y reinicia todo">Reset total</button>
+        </div>
+    </div>      
+  </header>
+
+  <main class="wrap">
+    <!-- Pantalla: Alta jugadores -->
+    <section id="screenSetup" class="card screen">
+      <h2>1) Jugadores</h2>
+      <p class="hint">
+        Añade jugadores en orden. Ese será el orden de turnos en cada partida.
+      </p>
+
+      <div class="row">
+        <input id="playerName" class="input" type="text" maxlength="20" placeholder="Nombre (ej: Ana)" />
+        <button id="btnAddPlayer" class="btn">Añadir</button>
+      </div>
+
+      <div class="listBox">
+        <ul id="playersList" class="players"></ul>
+        <div class="listFooter">
+          <span id="playersCount" class="badge">0 jugadores</span>
+          <button id="btnClearPlayers" class="btn ghost">Vaciar lista</button>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row between">
+        <div>
+          <h3>Impostores</h3>
+          <p class="hint">Máximo: la mitad de los jugadores (redondeando hacia abajo).</p>
+        </div>
+
+        <div class="impostorCtl">
+          <label for="impostorCount" class="hint">Cantidad</label>
+          <select id="impostorCount" class="input select"></select>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row between">
+        <div>
+          <h3>Listo para empezar</h3>
+          <p class="hint">Recomendado: 4+ jugadores.</p>
+        </div>
+        <button id="btnStart" class="btn primary" disabled>Empezar partida</button>
+      </div>
+    </section>
+
+    <!-- Pantalla: Turnos -->
+    <section id="screenTurn" class="card screen hidden">
+      <div class="row between">
+        <div>
+          <h2>2) Turnos</h2>
+          <p class="hint">
+            Jugador <span id="turnIndex"></span>/<span id="turnTotal"></span>:
+            <strong id="turnPlayer"></strong>
+          </p>
+        </div>
+        <div class="pill" id="roundInfoPill">
+          <span id="roundCategory"></span>
+        </div>
+      </div>
+
+      <div class="holdArea" id="holdArea" aria-label="Mantén pulsado para ver la palabra">
+        <div class="holdInner">
+          <p class="holdTitle">Mantén pulsado aquí</p>
+          <p class="holdSubtitle">para ver tu pista</p>
+
+          <div class="secretBox" id="secretBox">
+            <p class="secretLabel" id="secretLabel">PALABRA</p>
+            <p class="secretWord" id="secretWord">••••••</p>
+          </div>
+
+          <p class="holdTip" id="holdTip">Suelta para ocultar. Puedes repetir las veces que quieras.</p>
+        </div>
+      </div>
+
+      <div class="row between">
+        <button id="btnBackToSetup" class="btn ghost">Volver a jugadores</button>
+        <button id="btnNext" class="btn primary">SIGUIENTE</button>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="row between">
+        <div class="small">
+          <p><strong>Recordatorio:</strong> aquí solo se reparte palabra/rol. El debate va fuera 😄</p>
+          <p class="hint">Al terminar el reparto podéis votar y luego revelar.</p>
+        </div>
+        <button id="btnFinish" class="btn">Finalizar reparto</button>
+      </div>
+    </section>
+
+    <!-- Pantalla: Fin / Reveal -->
+    <section id="screenEnd" class="card screen hidden">
+      <h2>3) Final de partida</h2>
+      <p class="hint">Cuando estéis listos, revelad los impostores.</p>
+
+      <div class="revealBox">      
+        <div class="revealCenter" id="revealCenter">
+            <button id="btnReveal" class="btn primary big">REVELAR</button>
+          </div>
+      
+        <div id="revealResult" class="hidden">
+            <p class="hint" id="revealWordLine"></p>
+          
+            <p class="bigText" id="impostorTitle"></p>
+          
+            <ul id="impostorList" class="impostorList"></ul>
+        </div>
+          
+      </div>      
+
+      <div class="row between">
+        <button id="btnNewRound2" class="btn primary">Nueva partida (mismos jugadores)</button>
+        <button id="btnGoSetup" class="btn ghost">Editar jugadores</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p class="hint">Pro tip: en móvil, brillo alto y manos rápidas 😈</p>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
