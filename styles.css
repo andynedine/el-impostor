@@ -333,6 +333,14 @@ h3{ margin: 0; font-size: 16px; }
 }
 .holdArea.revealed::after{ opacity: 1; }
 
+/* Evita selección de texto en el área hold-to-reveal */
+.holdArea,
+.holdArea *{
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
 .holdInner{
   text-align:center;
   max-width: 520px;
@@ -443,4 +451,3 @@ h3{ margin: 0; font-size: 16px; }
   .turnTopRow{ font-size: 13px; }
   .turnPlayerName{ font-size: 2.4em; }
 }
-
